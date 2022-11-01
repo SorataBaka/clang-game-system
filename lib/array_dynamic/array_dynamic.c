@@ -191,19 +191,19 @@ void DeleteFirst(ArrayDin *array){
  * dan diakhiri newline.
  * Prekondisi: array terdefinisi
  */
-void PrintArrayDin(ArrayDin array)
-{
-	IdxType j;
+// void PrintArrayDin(ArrayDin array)
+// {
+// 	IdxType j;
 
-	printf("[");
-	for (j = 0; j < (array).Neff; j++) {
-		printf("%d", (array).A[j]);
-		if (j != (array).Neff -1) {
-			printf(", ");
-		}
-	}
-	printf("]\n");
-}
+// 	printf("[");
+// 	for (j = 0; j < (array).Neff; j++) {
+// 		printf("%d", (array).A[j]);
+// 		if (j != (array).Neff -1) {
+// 			printf(", ");
+// 		}
+// 	}
+// 	printf("]\n");
+// }
 
 /**
  * Fungsi untuk melakukan reverse suatu ArrayDin.

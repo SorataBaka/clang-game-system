@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "lib/array_dynamic/array_dynamic.c"
-#include "lib/boolean/boolean.h"
+#include "../lib/array_dynamic/array_dynamic.c"
+#include "../lib/boolean/boolean.h"
 #include "game_handler.h"
 void GameMaintenance(){
   printf("Sorry, this game is currently under maintenance and thus is unavailable to be played.\nPlease try again next time!\n");
   printf("Press any key to continue.\n");
+  getchar();
   getchar();
   return;
 }
@@ -22,8 +23,7 @@ void InitializeGames(ArrayDin * games){
     printf("Please enter a new name:\n");
     scanf(" %s", &newGame.name);
     newGame.execute = GameMaintenance;
-    InsertLast(&games, newGame);
-
+    InsertLast(games, newGame);
   }
 
   // Initialize the first 5 values of the map with all available games. Make sure to set the deletable value of the struct as false
@@ -56,10 +56,4 @@ void CreateGame(){
   // Read input and store in a variable name game_name
   // insert into game_name and set the value as game_maintenance
 
-}
-
-
-void test_game1(){
-  printf("This is the first game\n");
-  return;
 }

@@ -102,7 +102,7 @@ void DeleteFirst(ArrayDin *array);
  * dan diakhiri newline.
  * Prekondisi: array terdefinisi
  */
-void PrintArrayDin(ArrayDin array);
+// void PrintArrayDin(ArrayDin array);
 
 /**
  * Fungsi untuk melakukan reverse suatu ArrayDin.
