@@ -263,10 +263,10 @@ boolean stringIsMatch(char * a, char * b){
   return isValid;
 }
 
-IdxType SearchArrayDin(ArrayDin array, ElType el)
+IdxType SearchArrayDin(ArrayDin array, char * el)
 {
 	IdxType j = 0; 
-	while ((!stringIsMatch(el.name  , (array).A[j].name) && (j <= (array).Neff))) {
+	while ((!stringIsMatch(el , (array).A[j].name) && (j <= (array).Neff))) {
 		j++;
 	}
 	if (j > (array).Neff) {

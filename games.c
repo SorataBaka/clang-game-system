@@ -71,6 +71,22 @@ void test_game1(){
 
 // TESTS
 int main(){
-  game_maintenance();
+  initialize_games();
+
+
+
+  ElType selectedGame = games.A[SearchArrayDin(games, "2")];
+
+
+  printf("Game name is %s\n", selectedGame.name);
+  printf("Is this game deletable? %s\n", selectedGame.deletable? "yes" : "no");
+  printf("Executing....\n");
+  selectedGame.execute();
+
+
+
+
+
+
   return 0;
 }

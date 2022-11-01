@@ -11,7 +11,7 @@
 typedef int IdxType;
 typedef void (*func_type)(void);
 typedef struct {
-  char * name[50];
+  char name[50];
   boolean deletable;
   func_type execute;
 } GameValue;
@@ -122,6 +122,6 @@ ArrayDin CopyArrayDin(ArrayDin array);
  * Jika tidak ditemukan, akan mengembalikan -1.
  * Prekondisi: array terdefinisi
  */
-IdxType SearchArrayDin(ArrayDin array, ElType el);
+IdxType SearchArrayDin(ArrayDin array, char *  el);
 
 #endif
