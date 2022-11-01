@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "array_dynamic.h"
-#include "boolean.h"
+#include "../boolean/boolean.h"
 // #ifndef __ARRAY_DINAMIK__
 // #define __ARRAY_DINAMIK__
 
