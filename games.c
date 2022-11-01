@@ -75,9 +75,7 @@ int main(){
 
 
 
-  ElType selectedGame = games.A[SearchArrayDin(games, "2")];
-
-
+  ElType selectedGame = games.A[1-1];
   printf("Game name is %s\n", selectedGame.name);
   printf("Is this game deletable? %s\n", selectedGame.deletable? "yes" : "no");
   printf("Executing....\n");
