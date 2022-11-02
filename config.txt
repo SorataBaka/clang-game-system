@@ -1,13 +1,16 @@
-5
+8
 RNG
 Diner DASH
 DINOSAUR IN EARTH
 RISEWOMAN
 EIFFEL TOWER
-3
 game 1
 game 2
 game 3
+3
+RNG
+Diner DASH
+RNG
 3
 Jake 58
 Finn 31

@@ -6,5 +6,10 @@ ArrayDin games;
 int main(){
   InitializeGames(&games);
   SelectGame(games);
+  DeleteGame(&games);
+  DeleteGame(&games);
+  ListGame(games);
+  CreateGame(&games);
+  ListGame(games);
   return 0;
 }
