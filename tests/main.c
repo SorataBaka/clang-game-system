@@ -1,6 +1,7 @@
 #include "../src/game_handler.h"
 #include "../lib/array_dynamic/array_dynamic.h"
 #include <stdio.h>
+#include "../lib/mesin_kata/mesin_kata.h"
 ArrayDin games;
 
 int main(){
@@ -12,4 +13,5 @@ int main(){
   CreateGame(&games);
   ListGame(games);
   return 0;
+
 }

@@ -1,5 +1,7 @@
 {
 	"files.associations": {
-		"stdlib.h": "c"
+		"stdlib.h": "c",
+		"string_view": "c",
+		"mesinkarakter.h": "c"
 	}
 }

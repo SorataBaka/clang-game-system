@@ -1,9 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 #include "../lib/array_dynamic/array_dynamic.c"
 #include "../lib/boolean/boolean.h"
-#include "../lib/string_match/string_match.h"
+#include "../lib/mesin_kata/mesinkarakter.h"
+
 #include "game_handler.h"
+
+
 // GAME LIST, PLEASE REPLACE WITH FINAL GAME FUNCTION IN PRODUCTION
 void GameMaintenance(char gameName[50]){
   printf("\nGame %s masih dalam maintenance, belum dapat dimainkan.\nSilahkan pilih game lain.\n\n", gameName);
@@ -60,23 +64,19 @@ void InitializeGames(ArrayDin * games){
   /**
    * Initialize the games array
    * */
+
   *games = MakeArrayDin();
-  FILE * ptr;
-  ptr = fopen("./config.txt", "r");
-  if (ptr == NULL) {
-    printf("no such file.\n");
-    return;
-  }
-  int gameLength;
-  
-  // NEED TO REFACTOR AND REPLACE WITH CUSTOM ADT
-  fscanf(ptr, "%d", &gameLength);
+  startfile("./config.txt");
+
+  char gameLengthLineRead[50];
+  readLine(gameLengthLineRead);
+  int gameLength = gameLengthLineRead[0] - 48;
+
   for(int i = 0; i < 5; i++){
-    char gameName[20];
-    // NEED TO REFACTOR AND REPLACE WITH CUSTOM ADT
-    fscanf(ptr, " %[^\n]", gameName);
+    char placeholder[50];
+    readLine(placeholder);
     for(int j = 0; j < 5; j++){
-      if(MatchString(gameName, fixedGames[j].name)){
+      if(stringIsMatch(placeholder, fixedGames[j].name)){
         InsertLast(games, fixedGames[j]);
         break;
       }
@@ -89,8 +89,7 @@ void InitializeGames(ArrayDin * games){
       deletable: true,
       execute: GameMaintenance,
     };
-    // NEED TO REFACTOR AND REPLACE WITH CUSTOM ADT
-    fscanf(ptr, " %[^\n]", newGame.name);
+    readLine(newGame.name);
     InsertLast(games, newGame);
   }
 }
@@ -130,11 +129,10 @@ void DeleteGame(ArrayDin * currentGames){
   ListGame(*currentGames);
   printf("Masukkan nomor game yang akan dihapus: ");
   int deleteGame;
-  scanf("%d", &deleteGame);
+  scanf(" %d", &deleteGame);
   deleteGame = deleteGame - 1;
-
   //Check if its deletable;
-  if(currentGames->A[deleteGame].deletable){
+  if(deleteGame+1 >= 1 && deleteGame+1 <= Length(*currentGames)){
     DeleteAt(currentGames, deleteGame);
     printf("\nGame berhasil dihapus\n");
   }else{
