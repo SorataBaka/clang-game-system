@@ -3,9 +3,11 @@
 #include <stdio.h>
 #include "../lib/mesin_kata/mesin_kata.h"
 ArrayDin games;
-
 int main(){
   InitializeGames(&games);
+
+
+  
   SelectGame(games);
   DeleteGame(&games);
   DeleteGame(&games);

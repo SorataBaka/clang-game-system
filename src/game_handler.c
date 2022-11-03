@@ -4,6 +4,7 @@
 #include "../lib/array_dynamic/array_dynamic.c"
 #include "../lib/boolean/boolean.h"
 #include "../lib/mesin_kata/mesinkarakter.h"
+#include "../lib/mesin_kata/mesin_kata.h"
 
 #include "game_handler.h"
 
@@ -27,6 +28,7 @@ void RiseWoman(){
 void EiffelTower(){
   printf("This is the eiffel tower game\n");
 }
+
 // FIXED GAMES LIST, PLEASE MOVE TO HEADER FILE WHEN OTHER GAME FILES HAS BEEN RECEIVED.
 ElType fixedGames[] = {
   {
@@ -70,11 +72,14 @@ void InitializeGames(ArrayDin * games){
 
   char gameLengthLineRead[50];
   readLine(gameLengthLineRead);
+
   int gameLength = gameLengthLineRead[0] - 48;
 
   for(int i = 0; i < 5; i++){
     char placeholder[50];
     readLine(placeholder);
+
+    // TAMBAH INI KALO JUMLAH GAMENYA NAMBAH
     for(int j = 0; j < 5; j++){
       if(stringIsMatch(placeholder, fixedGames[j].name)){
         InsertLast(games, fixedGames[j]);
@@ -82,6 +87,7 @@ void InitializeGames(ArrayDin * games){
       }
     }
   }
+  
   int customGameLength = gameLength - 5;
   for(int i = 0 ; i < customGameLength; i++){
     ElType newGame =  {
@@ -105,12 +111,14 @@ void InitializeGames(ArrayDin * games){
 void SelectGame(ArrayDin currentGames){
   ListGame(currentGames);
   printf("Masukkan nomor game yang ingin dipilih: ");
+
   int selectedGame;
-  scanf("%d", &selectedGame);
+  readStdLineInt(&selectedGame);
+  
   while(selectedGame < 1 || selectedGame > Length(currentGames)){
     printf("Mohon masukkan angka yang benar.\n");
     printf("Masukkan nomor game yang ingin dipilih: ");
-    scanf("%d", &selectedGame);
+    readStdLineInt(&selectedGame);
   }
   currentGames.A[selectedGame-1].execute();
 }
@@ -129,10 +137,10 @@ void DeleteGame(ArrayDin * currentGames){
   ListGame(*currentGames);
   printf("Masukkan nomor game yang akan dihapus: ");
   int deleteGame;
-  scanf(" %d", &deleteGame);
+  readStdLineInt(&deleteGame);
   deleteGame = deleteGame - 1;
   //Check if its deletable;
-  if(deleteGame+1 >= 1 && deleteGame+1 <= Length(*currentGames)){
+  if(deleteGame+1 >= 1 && deleteGame+1 <= Length(*currentGames) && currentGames->A[deleteGame].deletable){
     DeleteAt(currentGames, deleteGame);
     printf("\nGame berhasil dihapus\n");
   }else{
@@ -169,6 +177,6 @@ void CreateGame(ArrayDin * currentGames){
     deletable: true,
     execute: GameMaintenance,
   };
-  scanf(" %[^\n]", newGame.name);
+  readStdLineString(newGame.name);
   InsertLast(currentGames, newGame);
 }

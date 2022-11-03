@@ -157,3 +157,9 @@ int stringLen(char string[]){
    return i;
 }
 
+void readStdLineString(char placeholder[50]){
+   fscanf(stdin, " %[^\n]", placeholder);
+}
+void readStdLineInt(int * placeholder){
+   fscanf(stdin, "%d", placeholder);
+}

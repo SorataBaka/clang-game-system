@@ -33,4 +33,6 @@ int takeNum(Word word);
 void takeString(Word word, char string[]);
 void stringCat(char string1[], char string2[]);
 int stringLen(char string[]);
+void readStdLineString(char placeholder[50]);
+void readStdLineInt(int * placeholder);
 #endif
